@@ -23,13 +23,12 @@ whether it agrees with `expected` in `data/enquiries.json`:
 
 | Enquiry | policy_officer | front_desk | auditor | bilingual_clerk |
 |---|---|---|---|---|
-| E-01 |decision "granted" coincided with expected
-decision "more_info" coincided with expected| | | |
-| E-02 | | | | |
-| E-03 | | | | |
-| E-04 | | | | |
-| E-05 | | | | |
-| E-06 | | | | |
+| E-01 |decision "granted" coincided with expected decision| | | |
+| E-02 |"more_info" coincided with expected| | | |
+| E-03 |decision"refused" coincided with expected| | | |
+| E-04 |decision"refused" coincided with expected | | | |
+| E-05 |decision"granted" coincided with expected| | | |
+| E-06 |decision"granted" coincided with expected| | | |
 | E-07 | | | | |
 | E-08 | | | | |
 | E-09 | | | | |
