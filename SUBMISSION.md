@@ -33,7 +33,7 @@ whether it agrees with `expected` in `data/enquiries.json`:
 | E-08 |decision"not_found" coincided with expected|decision"not_found" coincided with expected|decision"not_found" coincided with expected|decision"not_found" coincided with expected|
 | E-09 |decision"not_found" expected "refused"|decision"not_found" expected "refused"|decision"not_found" expected "refused"|decision"not_found" expected "refused"|
 | E-10 |decision"more_info" coincided with expected|decision"more_info" coincided with expected|decision"more_info" coincided with expected|decision"more_info" coincided with expected|
-| **agrees with `expected`** | /10 | /10 | /10 | /10 |
+| **agrees with `expected`** | 9/10 | 7/10 | 5/10 | 9/10 |
 | **parsed** | /10 | /10 | /10 | /10 |
 | **schema-valid** | /10 | /10 | /10 | /10 |
 
