@@ -10,7 +10,7 @@
 State which AI tools you used and for what. Expected and fine; undisclosed use
 is not. If you used a model to help you draft a prompt, say which prompt.
 
->
+>I worked only with Copilot.
 
 ---
 
