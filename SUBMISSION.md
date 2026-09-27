@@ -23,7 +23,8 @@ whether it agrees with `expected` in `data/enquiries.json`:
 
 | Enquiry | policy_officer | front_desk | auditor | bilingual_clerk |
 |---|---|---|---|---|
-| E-01 | | | | |
+| E-01 |decision"granted" coincided with expected
+| | | |
 | E-02 | | | | |
 | E-03 | | | | |
 | E-04 | | | | |
