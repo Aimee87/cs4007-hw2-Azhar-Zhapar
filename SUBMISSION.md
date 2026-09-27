@@ -74,6 +74,15 @@ Paste the full reply for **E-07 (the Kazakh enquiry)** from the bilingual
 clerk, so the `reason` language is visible:
 
 ```
+{
+  "role": "bilingual_clerk",
+  "applicant_id": "A-207",
+  "found": true,
+  "decision": "granted",
+  "amount": 200000,
+  "missing_documents": [],
+  "reason": "GPA 3.2 және табыс деңгейі 2, барлық қажетті құжаттар тапсырылған."
+}
 ```
 
 ### Written answers
@@ -81,24 +90,46 @@ clerk, so the `reason` language is visible:
 **1. Which fields are role-sensitive and which are not?** Point at rows in your
 tables.
 
->
+>Role‑sensitive fields:
+decision → changes in rows E‑01, E‑03, E‑04, E‑05, E‑06, E‑07, E‑09.
+amount → changes together with decision in those same rows.
+reason → changes in E‑07 (bilingual clerk writes in Kazakh).
+
+Not role‑sensitive fields:
+found → always the same (see E‑02, E‑08, E‑10).
+missing_documents → always the same (see E‑02, E‑10).
 
 **2. Which enquiries are most sensitive to the role, and why those?** Say what
 E-03, E-04, E-07 and E-10 are each testing.
 
->
+>Most role‑sensitive enquiries:
+E‑03 → Tests how the front_desk role handles refusals. Policy officer says refused, but front_desk changes it to more_info.
+E‑04 → Same as E‑03, another case of refusal turned into more_info by front_desk.
+E‑07 → Tests both decision and language. Policy officer says granted, auditor changes it to more_info, bilingual clerk keeps granted but writes the reason in Kazakh.
+These are sensitive because the decision or reason changes depending on the role.
+
+Less role‑sensitive enquiry:
+E‑10 → Tests missing documents. All roles agree on more_info.
+This one is not sensitive because the outcome is the same across roles.
 
 **3. Where does discretion belong — the role paragraph, or code that reads
 `decision` afterwards?** Say what a downstream program can and cannot tell
 about which role produced a record.
 
->
+>The discretion logic is embedded in the role definition. It specifies, for instance, that the `front_desk` role does not write "refused," the `auditor` does not write "granted," and the `bilingual_clerk` changes the language.
+The code that subsequently reads the `decision` sees only the final value; it has no knowledge of why that value changed.
+
+Downstream program:
+It can identify the role if the record contains a `role` field.
+It cannot determine—based solely on the `decision`—which role performed the action or why, because the same value can be produced by different roles for different reasons.
 
 **4. Is a role a boundary?** Say in Week 2 terms what the role paragraph is
 made of, and what you would put in code — not in the prompt — if a wrong
 `decision` were expensive.
 
->
+>Yes, a role is a boundary.
+The role paragraph is made of rules (like “front_desk never refuses,” “auditor never grants,” “bilingual clerk changes language”).
+If a wrong decision costs a lot, then the code should add checks after reading JSON. For example, code can check that “granted” only happens when documents are complete.
 
 ---
 
