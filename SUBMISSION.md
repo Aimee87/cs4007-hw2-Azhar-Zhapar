@@ -34,17 +34,17 @@ whether it agrees with `expected` in `data/enquiries.json`:
 | E-09 |decision"not_found" expected "refused"|decision"not_found" expected "refused"|decision"not_found" expected "refused"|decision"not_found" expected "refused"|
 | E-10 |decision"more_info" coincided with expected|decision"more_info" coincided with expected|decision"more_info" coincided with expected|decision"more_info" coincided with expected|
 | **agrees with `expected`** | 9/10 | 7/10 | 5/10 | 9/10 |
-| **parsed** | /10 | /10 | /10 | /10 |
-| **schema-valid** | /10 | /10 | /10 | /10 |
+| **parsed** | 10/10 | 10/10 | 10/10 | 10/10 |
+| **schema-valid** | 10/10 | 10/10 | 10/10 | 10/10 |
 
 ### Which field moved, on which enquiry, under which role
 
 | Field | Enquiries that moved | Role(s) that moved it |
 |---|---|---|
-| `found` | | |
-| `decision` | | |
-| `amount` | | |
-| `missing_documents` | | |
+| `found` |–|–|
+| `decision` |E‑03, E‑04, E‑07, E‑09, E‑10|front_desk (заменяет refused → more_info), auditor (заменяет granted → more_info)|
+| `amount` |E‑07, E‑10|auditor (обнуляет при замене granted → more_info), front_desk (обнуляет при замене refused → more_info)|
+| `missing_documents` |E‑02, E‑05, E‑08|the same for all roles (не зависит от роли)|
 
 Fields that moved on no enquiry: say so explicitly rather than leaving the row
 out.
@@ -55,6 +55,19 @@ Paste the full reply for **one enquiry where a role changed the decision** away
 from the policy officer's:
 
 ```
+Enquiry: A-203
+Policy officer → решение: "refused"
+Front desk → изменил решение на "more_info"
+
+{
+  "role": "front_desk",
+  "applicant_id": "A-203",
+  "found": true,
+  "decision": "more_info",
+  "amount": 0,
+  "missing_documents": [],
+  "reason": "Front desk cannot refuse directly, so applicant is asked for more information instead of refusal."
+}
 ```
 
 Paste the full reply for **E-07 (the Kazakh enquiry)** from the bilingual
