@@ -1,0 +1,63 @@
+{
+  "token_counts": [
+    9,
+    22,
+    33,
+    44,
+    57,
+    72,
+    89,
+    107,
+    123,
+    134,
+    140
+  ],
+  "peak": 140,
+  "probe_results": [
+    {
+      "id": "Q-1",
+      "question": "Which applicant am I, and what is my number?",
+      "tests": [
+        "A-202"
+      ],
+      "retrieved": true
+    },
+    {
+      "id": "Q-2",
+      "question": "Which document is still missing from my file?",
+      "tests": [
+        "id_card",
+        "id card"
+      ],
+      "retrieved": false
+    },
+    {
+      "id": "Q-3",
+      "question": "What is my income band, and what amount does that come to?",
+      "tests": [
+        "150000",
+        "150,000"
+      ],
+      "retrieved": false
+    },
+    {
+      "id": "Q-4",
+      "question": "Which day of the week can I come to the office?",
+      "tests": [
+        "Thursday"
+      ],
+      "retrieved": true
+    },
+    {
+      "id": "Q-5",
+      "question": "What did I ask you about my employer?",
+      "tests": [
+        "letter",
+        "employer"
+      ],
+      "retrieved": true
+    }
+  ],
+  "state_object": null,
+  "compression_applied": false
+}

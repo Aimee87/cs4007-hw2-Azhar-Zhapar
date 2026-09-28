@@ -1,0 +1,79 @@
+{
+  "token_counts": [
+    9,
+    22,
+    33,
+    44,
+    57,
+    72,
+    89,
+    107,
+    123,
+    23,
+    34,
+    40
+  ],
+  "peak": 123,
+  "probe_results": [
+    {
+      "id": "Q-1",
+      "question": "Which applicant am I, and what is my number?",
+      "tests": [
+        "A-202"
+      ],
+      "retrieved": true
+    },
+    {
+      "id": "Q-2",
+      "question": "Which document is still missing from my file?",
+      "tests": [
+        "id_card",
+        "id card"
+      ],
+      "retrieved": false
+    },
+    {
+      "id": "Q-3",
+      "question": "What is my income band, and what amount does that come to?",
+      "tests": [
+        "150000",
+        "150,000"
+      ],
+      "retrieved": false
+    },
+    {
+      "id": "Q-4",
+      "question": "Which day of the week can I come to the office?",
+      "tests": [
+        "Thursday"
+      ],
+      "retrieved": true
+    },
+    {
+      "id": "Q-5",
+      "question": "What did I ask you about my employer?",
+      "tests": [
+        "letter",
+        "employer"
+      ],
+      "retrieved": true
+    }
+  ],
+  "state_object": {
+    "applicant_id": "A-202",
+    "topic": "study grant",
+    "facts": [
+      "transcript sent",
+      "income band 2"
+    ],
+    "decisions": [],
+    "constraints": [
+      "Thursday office visit"
+    ],
+    "open_questions": [
+      "employer letter validity"
+    ],
+    "language": "en+kk"
+  },
+  "compression_applied": true
+}
