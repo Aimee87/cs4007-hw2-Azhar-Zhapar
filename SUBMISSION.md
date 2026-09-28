@@ -276,16 +276,16 @@ Paste the extraction for **story-06**, the one that contradicts itself:
 
 | Candidate | academic (0–5) | research (0–5) | experience (0–5) | weighted total (code) |
 |---|---|---|---|---|
-| story-01 | | | | |
-| story-02 | | | | |
-| story-03 | | | | |
-| story-04 | | | | |
-| story-05 | | | | |
-| story-06 | | | | |
+| story-01 |5|5|1|4.2|
+| story-02 |0|3|5|1.9|
+| story-03 |3|3|3|3.0|
+| story-04 |3|3|5|3.4|
+| story-05 |5|3|1|3.6|
+| story-06 |0|3|5|1.9|
 
-**Winner, computed by my code:**
+**Winner, computed by my code:** Aziza Bekova with total score 4.2
 
-**The model's prose answer, asked separately ("who should win?"):**
+**The model's prose answer, asked separately ("who should win?"):** Aziza Bekova should win. She has a high GPA (above 3.7), which indicates strong academic performance. She has published two research papers—an impressive research achievement. Although she has less work experience than the others, her academic record and publications make her the strongest candidate.
 
 >
 ```
@@ -295,30 +295,32 @@ Paste the extraction for **story-06**, the one that contradicts itself:
 **1. Which rule did you have to add, and what broke without it?** Name the
 story that forced it.
 
->
+>The rule I had to add was: “If the story contradicts itself, do not resolve or average it — set the field to null and record the contradiction.”  
+Without this rule, the code would break when trying to calculate GPA for story‑06 (Nurzhan Abilov), because his story gave two different GPAs (3.2 vs 3.5). The program would not know which value to use, so the rule forces GPA = null and saves the contradiction separately.
 
 **2. Where did the model guess, and where did your code have to decide?** One
 example of each, from your run.
 
->
+>The model guessed in places where the story gave only a description without numbers. For example, in languages it guessed fluency levels (like “English C1” or “English B2”) based on wording in the text.
+My code had to decide in places where a conversion or strict rule was needed. For example, in story‑03 (Lyazzat Omarova) the story gave GPA 4.6/5.0, and my code had to convert it to 3.68/4.0 so it could be scored correctly.
 
 **3. Did your prose ranking and your computed ranking agree?** Say which one
 you trust and why — and if they agreed, what you would need to see before
 trusting the prose one alone.
 
->
+>Yes, my prose ranking and my computed ranking agreed — both selected Aziza Bekova as the winner. I trust the computed ranking more, because it follows the rubric weights exactly and is reproducible. If they had agreed, but I only had the prose answer, I would need to see clear evidence in the text (like GPA numbers, publication counts, and months of experience) before trusting the prose alone.
 
 **4. The rubric has no anchor for a contradicted field.** The stories say 3.2
 and then 3.5; the rubric defines a 0 and a 5 and nothing in between for this
 case. Say what you did and what the rule should be.
 
->
+>The rubric didn’t say what to do if a field has two different values. In story‑06 (Nurzhan Abilov) the GPA was written as 3.2 and also 3.5. Because the rubric only has rules for 0 or 5, I set GPA = null and wrote down the contradiction. The rule should be: “If the story gives two different numbers, don’t average or guess — mark it null and note the contradiction.”
 
 **5. How close were your top two candidates?** If they were within 0.05, say
 what you would tell the committee and what you would change in the extraction
 to make that call defensible.
 
->
+>My top two after the winner were Aisha (3.6) and Tamerlan (3.4). The gap was 0.2, so not very close. Aziza was clearly first with 4.2. If the gap had been only 0.05, I would tell the committee the scores are too close. To be sure, I would check details again, like counting work months exactly or confirming if papers are really published.
 
 ---
 
@@ -328,4 +330,4 @@ Having now written a role prompt, compressed a conversation, and ranked six
 extractions — what will you do differently the next time you build something
 that has to get reliable structured output out of a model?
 
->
+>After doing the easy, medium, and hard tasks, I learned that next time I need clearer rules and stricter checks. I will mark contradictions as null, avoid guessing, and keep facts structured. I will also double‑check numbers and documents. This way the output will be more reliable and easier to trust.
