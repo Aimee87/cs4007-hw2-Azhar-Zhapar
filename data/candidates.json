@@ -1,0 +1,113 @@
+[
+  {
+    "candidate_id": "story-01",
+    "full_name": "Aziza Bekova",
+    "degree": "BSc in Computer Science",
+    "graduation_year": 2025,
+    "gpa_4_scale": 3.8,
+    "original_scale": "4.0",
+    "languages": [
+      "Kazakh",
+      "Russian",
+      "English (C1)"
+    ],
+    "published_outputs": 2,
+    "submitted_outputs": 0,
+    "experience_months": 8,
+    "evidence": {},
+    "contradictions": []
+  },
+  {
+    "candidate_id": "story-02",
+    "full_name": "Dias Yerzhanov",
+    "degree": "BSc in Information Systems",
+    "graduation_year": 2025,
+    "gpa_4_scale": null,
+    "original_scale": null,
+    "languages": [
+      "Kazakh",
+      "Russian",
+      "English (B2)"
+    ],
+    "published_outputs": 1,
+    "submitted_outputs": 0,
+    "experience_months": 36,
+    "evidence": {},
+    "contradictions": []
+  },
+  {
+    "candidate_id": "story-03",
+    "full_name": "Lyazzat Omarova",
+    "degree": "BSc in Applied Mathematics",
+    "graduation_year": 2025,
+    "gpa_4_scale": 3.68,
+    "original_scale": "5.0",
+    "languages": [
+      "Kazakh",
+      "Russian",
+      "English"
+    ],
+    "published_outputs": 1,
+    "submitted_outputs": 1,
+    "experience_months": 14,
+    "evidence": {},
+    "contradictions": []
+  },
+  {
+    "candidate_id": "story-04",
+    "full_name": "Tamerlan Saparov",
+    "degree": "BSc in Computer Science",
+    "graduation_year": 2026,
+    "gpa_4_scale": 3.6,
+    "original_scale": "4.0",
+    "languages": [
+      "Kazakh",
+      "Russian",
+      "English",
+      "Turkish (A2)"
+    ],
+    "published_outputs": 1,
+    "submitted_outputs": 1,
+    "experience_months": 24,
+    "evidence": {},
+    "contradictions": []
+  },
+  {
+    "candidate_id": "story-05",
+    "full_name": "Aisha Nurlankyzy",
+    "degree": "BSc in Informatics",
+    "graduation_year": 2025,
+    "gpa_4_scale": 3.9,
+    "original_scale": "4.0",
+    "languages": [
+      "Kazakh",
+      "Russian",
+      "English (C1)"
+    ],
+    "published_outputs": 1,
+    "submitted_outputs": 0,
+    "experience_months": 6,
+    "evidence": {},
+    "contradictions": []
+  },
+  {
+    "candidate_id": "story-06",
+    "full_name": "Nurzhan Abilov",
+    "degree": "BSc in Statistics",
+    "graduation_year": 2024,
+    "gpa_4_scale": null,
+    "original_scale": "4.0",
+    "languages": [
+      "Kazakh",
+      "Russian",
+      "English"
+    ],
+    "published_outputs": 1,
+    "submitted_outputs": 0,
+    "experience_months": 40,
+    "evidence": {},
+    "contradictions": [
+      "GPA 3.2 vs 3.5"
+    ]
+  }
+]
