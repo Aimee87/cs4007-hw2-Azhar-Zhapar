@@ -1,9 +1,12 @@
 # HW2 submission
 
-**Name:**
-**Student ID:**
-**Group:**
-**Repository:**
+**Name:** Azhar
+
+**Student ID:** S23069523
+
+**Group:** CSS4007-ENG-8
+
+**Repository:** cs4007-hw2-Azhar-Zhapar
 
 ## AI tool disclosure
 
@@ -139,35 +142,52 @@ If a wrong decision costs a lot, then the code should add checks after reading J
 
 | Call | A — never compressed | B — compressed at the `compress` turn |
 |---|---|---|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
-| 6 | | |
-| 7 | | |
-| 8 | | |
-| 9 | | |
-| 10 | | |
-| 11 | | |
-| 12 | | |
-| **peak** | | |
-| **total for the run** | | |
+| 1 |9|9|
+| 2 |22|22|
+| 3 |33|33|
+| 4 |44|44|
+| 5 |57|57|
+| 6 |72|72|
+| 7 |89|89|
+| 8 |107|107|
+| 9 |123|123|
+| 10 |134|23|
+| 11 |140|34|
+| 12 |-|40|
+| **peak** |140|123|
+| **total for the run** |830|653|
 
 ### Probes after the conversation
 
 | Probe | Tests | A retrieved? | A answer | B retrieved? | B answer |
 |---|---|---|---|---|---|
-| Q-1 identity | turn 1 | | | | |
-| Q-2 missing document | turn 5 | | | | |
-| Q-3 band and amount | turns 3–4 | | | | |
-| Q-4 the constraint | turn 6 | | | | |
-| Q-5 the open question | turn 7 | | | | |
-| **retrieved** | | /5 | | /5 | |
+| Q-1 identity | turn 1 |true|A‑202|true|A‑202|
+| Q-2 missing document | turn 5 |false|-|false|-|
+| Q-3 band and amount | turns 3–4 |false|-|false|-|
+| Q-4 the constraint | turn 6 |true|Thursday|true|Thursday|
+| Q-5 the open question | turn 7 |true|letter employer|true|letter employer|
+| **retrieved** | | 3/5 | | 3/5 | |
 
 ### The state my compression produced
 
-```json
+```
+{
+  "applicant_id": "A-202",
+  "topic": "study grant",
+  "facts": [
+    "transcript sent",
+    "income band 2"
+  ],
+  "decisions": [],
+  "constraints": [
+    "Thursday office visit"
+  ],
+  "open_questions": [
+    "employer letter validity"
+  ],
+  "language": "en+kk",
+  "compression_applied": true
+}
 ```
 
 ### Written answers
@@ -175,24 +195,39 @@ If a wrong decision costs a lot, then the code should add checks after reading J
 **1. What did compression buy?** Peak tokens both ways, probes retrieved both
 ways, and — if a probe was lost — which one and which turn it came from.
 
->
+>Compression helped by reducing tokens.
+Peak tokens: 140 (uncompressed) → 123 (compressed).
+Probes retrieved: 3/5 in both runs (Q‑1, Q‑4, Q‑5).
+Lost probes: Q‑2 (missing document, turn 5) and Q‑3 (income band and amount, turns 3–4).
+So compression saved tokens but did not change which probes were found.
 
 **2. Why must the state be structured rather than a paragraph?** You could have
 asked for "a summary". Say what changes when the summary is an object with
 named fields.
 
->
+>The state must be structured because each fact is stored in a clear field.
+In a paragraph summary, information is mixed and hard to check.
+In a structured object, every item (like applicant_id, facts, constraints) has its own place.
+This makes it easy for the program to validate, search, and know what is missing.
+So, a structured state is reliable for machines, while a paragraph is only text for humans.
 
 **3. What is missing from your state that you would add?** Name what you would
 add and what you would drop to pay for it.
 
->
+>My state is missing the income band amount (150,000) and the missing document (id card).
+I would add these two facts into the state object.
+To pay for it, I would drop less important details, like the language field or keep fewer open questions.
+This way, the state keeps the most critical facts for probes.
 
 **4. When is compression the wrong choice?** Name a conversation where it would
 lose something that cannot be recovered, and say whether your program would
 notice.
 
->
+>Compression is wrong when the conversation has details that cannot be rebuilt from a short state.
+Example: a medical chat where the doctor gives exact dosage instructions step by step.
+If compressed, the state may keep only “medicine prescribed” but lose the exact numbers.
+The program would not notice — it would think the state is valid, but the lost detail is critical.
+So compression is dangerous when small details (like numbers, names, or steps) are essential.
 
 ---
 
