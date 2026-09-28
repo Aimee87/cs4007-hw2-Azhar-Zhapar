@@ -237,19 +237,39 @@ So compression is dangerous when small details (like numbers, names, or steps) a
 
 | Story | Parsed? | Valid? | Fields that came back `null` | Traps hit |
 |---|---|---|---|---|
-| story-01 | | | | |
-| story-02 | | | | |
-| story-03 | | | | |
-| story-04 | | | | |
-| story-05 | | | | |
-| story-06 | | | | |
+| story-01 |yes|yes|none|none|
+| story-02 |yes|yes|gpa_4_scale, original_scale|no GPA stated|
+| story-03 |yes|yes|none|GPA on another scale, paper not published|
+| story-04 |yes|yes|none|paper not published|
+| story-05 |yes|yes|none|none|
+| story-06 |yes|yes|gpa_4_scale|story contradicts itself (GPA 3.2 vs 3.5)|
 
 The four traps, for reference: no GPA stated · a GPA on another scale · a paper
 that is not published · a story that contradicts itself.
 
 Paste the extraction for **story-06**, the one that contradicts itself:
 
-```json
+```
+{
+  "candidate_id": "story-06",
+  "full_name": "Nurzhan Abilov",
+  "degree": "BSc in Statistics",
+  "graduation_year": 2024,
+  "gpa_4_scale": null,
+  "original_scale": "4.0",
+  "languages": ["Kazakh", "Russian", "English"],
+  "published_outputs": 1,
+  "submitted_outputs": 0,
+  "experience_months": 40,
+  "evidence": {
+    "degree": "BSc in Statistics, 2024",
+    "gpa": "Contradiction: GPA 3.2 vs 3.5",
+    "publications": "One published paper",
+    "experience": "Insurance analytics team, 40 months",
+    "languages": "Kazakh, Russian, English"
+  },
+  "contradictions": ["GPA 3.2 vs 3.5"]
+}
 ```
 
 ### Part 2 — scores and the winner
