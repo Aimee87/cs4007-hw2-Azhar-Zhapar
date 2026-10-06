@@ -3,14 +3,12 @@ import json
 import re
 import requests
 from dotenv import load_dotenv
-from tabulate import tabulate   # pip install tabulate
+from tabulate import tabulate   
 
-# Загружаем ключ и базовый URL из .env
 load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
 
-# Загружаем данные
 with open("data/records.json", encoding="utf-8") as f:
     records = {r["id"]: r for r in json.load(f)}
 
@@ -107,11 +105,9 @@ if __name__ == "__main__":
         for enquiry in enquiries:
             results.append(make_response(role, enquiry))
 
-    # сохраняем JSON (валидный по схеме)
     with open("results.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
-    # таблицу можно оставить для удобства
     headers = ["Role", "Applicant ID", "Found", "Decision", "Amount", "Missing Docs", "Reason"]
     table = [[r["role"], r["applicant_id"], r["found"], r["decision"], r["amount"], r["missing_documents"], r["reason"]] for r in results]
     with open("results.txt", "w", encoding="utf-8") as f:
