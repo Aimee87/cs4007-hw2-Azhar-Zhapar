@@ -96,7 +96,6 @@ def part1_create_json():
         cv = extract_cv(text, candidate_id)
         cvs.append(cv)
 
-    # сохраняем JSON рядом с data/
     with open("data/candidates.json", "w", encoding="utf-8") as f:
         json.dump(cvs, f, indent=2, ensure_ascii=False)
     print("Part 1 done: data/candidates.json created")
